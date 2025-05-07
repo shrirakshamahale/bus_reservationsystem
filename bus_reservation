@@ -1,0 +1,69 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+void allocation(int arr[50],int n,int pos)
+{
+ if(arr[pos]==1)
+ {
+   printf("seat is already booked please try a diffrent seat\n");
+ }
+ else
+ {
+    arr[pos]=1;
+    printf("seat number is booked successfully\n");
+ }
+}
+void deletion(int arr[50],int pos)
+{
+ arr[pos]=0;
+}
+void display(int arr[50],int n)
+{
+ printf("The number of seats available are:");
+  for(int i=0;i<n;i++)
+  {
+    printf("%d\t",arr[i]);
+  }
+  printf("\n");
+
+}
+void main()
+{
+    int n=10,arr[50]={0.0},pos,choice;
+    printf("THE TOTAL NUMBER OF SEATS AVAILABLE IN BUS ARE :%d\n",n);
+   
+
+
+    while(1)
+    {
+        printf("MENU\n");
+        printf("1.RESERVE A SEAT\n");
+        printf("2.CANCEL A SEAT\n");
+        printf("3.DISPLAY THE SEATS\n");
+        printf("4.EXIT FROM PAGE\n");
+        printf("enter your choice :");
+        scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:
+            printf("enter the seat number you want to book(1-%d):",n );
+            scanf("%d",&pos);
+            allocation(arr,n,pos);
+        break;
+        case 2:
+            printf("enter the seat you want to cancel");
+            scanf("%d",&pos);
+            deletion( arr, pos);
+            printf("seat is cancelled successfully\n");
+        break;
+        case 3:
+            display(arr,n);
+        break;
+        case 4:
+            printf("exiting site.......");
+            exit(0);
+        break;
+    }
+    }
+}
+
